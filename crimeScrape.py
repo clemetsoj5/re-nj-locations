@@ -27,3 +27,9 @@ for li2 in ul2.find_all('li'):
         link_list.append(links2)
 
 link_list = ['http://www.city-data.com/crime/' + x for x in link_list]
+
+def open_city_page(link_list):
+    with open('crimeData.csv','w') as csv_file:
+        csv_writer = writer(csv_file)
+        headers = ['City','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017']
+        csv_writer.writerow(headers)
