@@ -41,4 +41,15 @@ def open_city_page(link_list):
             table = soup.find('table', attrs={'class': 'table tabBlue tblsort tblsticky sortable'})
             caption = table.find('caption')
             caption = caption.text
-        
+
+            tr = soup.find('tr', attrs={'class': 'nosort'})
+            td = tr.find_all('td')
+
+            output = [caption]
+            for x in td[1:16]:
+                td = x.string
+                output.append(td)
+            csv_writer.writerow(output)
+
+open_city_page(link_list)
+
